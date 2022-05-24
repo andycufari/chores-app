@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { RootNavigator } from './App/navigation/RootNavigator';
-import { AuthenticatedUserProvider } from './App/providers';
+import { AuthenticatedUserProvider, TeamProvider } from './App/providers';
+import TeamService from './App/services/TeamService';
 
 const theme = {
   ...DefaultTheme,
@@ -14,15 +15,21 @@ const theme = {
   },
 };
 
-
 const App = () => {
+  let currentTeam;
+  useEffect( () => {
+    currentTeam =  TeamService.getLocalTeam();
+  })
+
   return (
     <AuthenticatedUserProvider>
-      <SafeAreaProvider>
-        <PaperProvider theme={theme}>
-          <RootNavigator />
-        </PaperProvider>
-      </SafeAreaProvider>
+      <TeamProvider currentTeam={currentTeam}>
+        <SafeAreaProvider>
+          <PaperProvider theme={theme}>
+            <RootNavigator />
+          </PaperProvider>
+        </SafeAreaProvider>
+      </TeamProvider>
     </AuthenticatedUserProvider>
   );
 };

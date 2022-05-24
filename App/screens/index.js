@@ -1,7 +1,7 @@
 import { LoginScreen } from './LoginScreen';
 import { SignupScreen } from './SignupScreen';
 import { HomeScreen } from './HomeScreen';
-import { TeamScreen } from './TeamScreen';
+import { TeamsScreen } from './TeamsScreen';
 import { ForgotPasswordScreen } from './ForgotPasswordScreen';
 
-export { LoginScreen, SignupScreen, HomeScreen, TeamScreen, ForgotPasswordScreen };
+export { LoginScreen, SignupScreen, HomeScreen, TeamsScreen, ForgotPasswordScreen };
