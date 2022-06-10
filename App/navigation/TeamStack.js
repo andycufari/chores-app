@@ -15,7 +15,7 @@ function Home() {
         tab name="Feed" 
         component={TeamScreen} 
         options={{
-          tabBarLabel: "Registro",
+          tabBarLabel: "Tareas",
           tabBarIcon: () => {
             return <Icon type="material-community" name="logout" size={26}/>
           }
